@@ -7,9 +7,17 @@ const bodyParser = require('body-parser') // <-- json parser
 const app = express()
 
 // set up the default port
-const port = 8000
+const port = 8001
+
+// connect app/routes files to our Express app
+require('./app/routes')(app)
+
+app.get('/', (req, res) => {
+    res.send("Hello")
+})
 
 // when server starts, app will listen to port 8000 and log a message
 app.listen(port, () => {  console.log('We are live on ' + port)})
+
 
 

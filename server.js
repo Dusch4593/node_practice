@@ -9,11 +9,15 @@ const app = express()
 // set up the default port
 const port = 8001
 
+app.use(bodyParser.urlencoded({extended: true}))
+
 // connect app/routes files to our Express app
 require('./app/routes')(app)
 
+
+
 app.get('/', (req, res) => {
-    res.send("Hello")
+    res.send("Hello, World!")
 })
 
 // when server starts, app will listen to port 8000 and log a message
